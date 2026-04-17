@@ -1,3 +1,75 @@
+## Validade Fácil — Android App (Registro de Validade por Voz)
+
+App Android que registra datas de validade de produtos por comandos de voz em português-BR.
+Desenvolvido com Red-Green TDD, MVVM, Room e SpeechRecognizer.
+
+### Pré-requisitos
+
+| Ferramenta | Versão mínima |
+|---|---|
+| Android Studio | Hedgehog (2023.1.1) ou superior |
+| JDK | 17 |
+| Android SDK | API 34 (compileSdk) / API 24 (minSdk) |
+| Gradle | 8.2 (wrapper incluído) |
+
+### Build via Android Studio
+
+1. Abra o Android Studio e selecione **File › Open**.
+2. Navegue até a pasta `android/` dentro deste repositório e clique **OK**.
+3. Aguarde o sync do Gradle terminar.
+4. Para rodar no emulador ou dispositivo: **Run › Run 'app'** (Shift+F10).
+
+### Build via linha de comando
+
+```bash
+cd android
+
+# Conceder permissão de execução ao wrapper (Linux/macOS)
+chmod +x gradlew
+
+# Build de debug
+./gradlew assembleDebug
+
+# O APK gerado fica em:
+# app/build/outputs/apk/debug/app-debug.apk
+
+# Build de release (requer keystore configurado)
+./gradlew assembleRelease
+```
+
+### Rodar os testes unitários
+
+```bash
+cd android
+
+# Executa todos os testes JVM (sem emulador)
+./gradlew test
+
+# Relatório HTML em:
+# app/build/reports/tests/testDebugUnitTest/index.html
+```
+
+Os testes cobrem:
+
+- **`ProductTest`** — modelo de domínio (expirado, vencendo em breve, formatação)
+- **`VoiceCommandParserTest`** — parsing de comandos PT-BR (12 meses, 3 verbos de gatilho, formatos numérico e textual)
+- **`ProductRepositoryTest`** — repositório com DAO fake em memória
+- **`ProductViewModelTest`** — ViewModel com repositório fake e coroutines de teste
+
+### Exemplos de comandos de voz
+
+```
+"adicionar leite vence 20 de maio"
+"registrar frango validade 25/05/2027"
+"cadastrar creme de leite expira em 10 de dezembro de 2027"
+```
+
+### Permissões necessárias
+
+- `RECORD_AUDIO` — solicitada em tempo de execução na primeira vez que o microfone é acionado.
+
+---
+
 ## Efficient recursive (tree-structured) neural networks in TensorFlow
 
 (This repository was clone from [here](https://github.com/bogatyy/cs224d), and 
