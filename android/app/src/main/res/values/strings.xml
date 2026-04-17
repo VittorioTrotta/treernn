@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Validade Fácil</string>
+    <string name="hint_tap_mic">Toque no microfone e diga:\n\"adicionar leite vence 20 de maio\"</string>
+    <string name="listening">Ouvindo… fale agora</string>
+    <string name="speech_prompt">Diga o produto e a validade</string>
+    <string name="empty_list">Nenhum produto cadastrado.\nToque no microfone para começar.</string>
+    <string name="fab_label">Falar</string>
+    <string name="fab_desc">Iniciar reconhecimento de voz</string>
+    <string name="permission_denied">Permissão de microfone negada</string>
+    <string name="status_expired">Vencido!</string>
+    <string name="status_expiring_soon">Vence em %d dia(s)!</string>
+    <string name="status_ok">Válido por %d dias</string>
+</resources>
